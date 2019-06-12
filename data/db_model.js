@@ -13,7 +13,7 @@ module.exports = {
 
 async function find(token, id=0)
 {
-  //jwt.verify(token);
+  jwt.verify(token, secrets.jwtSecret);
   let {username, authentication} = jwt.decode(token);
   
   if(!username || !authentication) throw "unauthorized access to database, please login333"
